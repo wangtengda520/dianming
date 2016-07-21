@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>点名软件</title>
+		<style type="text/css">
+			body { background-color: #000; }
+			.name { width: 80px; height: 20px; border: 1px solid red; line-height: 20px;
+				text-align: center; float: left; margin: 5px 5px; color: #fff; 
+				cursor: pointer;
+			}
+			.name:hover{
+				background-color: #FF6666;
+			}
+			#container { width: 920px; margin: 50px auto 10px; border: 1px dashed blue; }
+			.clear { clear: both; }
+			#button { width: 300px; height: 30px; border: 1px solid green; border-radius: 5px;
+				color: #fff; background-color: green; font-size: 14px; line-height: 30px;
+				text-align: center; margin: 0 auto; cursor: pointer; }
+			#button:active { background-color: lightgreen; }
+			.select { background-color: yellow; color: #000; }
+		</style>
+		<script type="text/javascript" id="data">
+		/*
+		
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 测试名字 
+
+		*/
+		</script>
+		<script type="text/javascript">
+			function getData(id){
+					var node = document.getElementById(id);
+					var txt = node
+							.innerHTML
+							.replace( /\/\*|\*\//g, "" )
+							.replace( /\s+/g, " " )
+							.trim();
+					node.parentNode.removeChild( node );
+					return txt.split( ' ' );
+				}
+			onload = function() {
+					var stus = getData('data');
+					console.log(stus);
+					var stusDiv = document.getElementById('container');
+					var str = '';
+					for (var i = 0; i < stus.length; i++) {
+						var item = stus[i];
+						str+='<div class="name">'+item+'</div>'
+					}
+					str+='<div class="clear"></div>';
+					stusDiv.innerHTML=str;
+					document.body.appendChild(stusDiv);
+			}
+
+			// var J = {
+			// 	id: function (idName) {
+			// 		return document.getElementById( idName );
+			// 	},
+			// 	getData: function ( idName ) {
+			// 		var node = this.id( idName ),
+			// 			txt;
+			// 		txt = node
+			// 				.innerHTML
+			// 				.replace( /\/\*|\*\//g, "" )
+			// 				.replace( /\s+/g, " " )
+			// 				.trim();
+			// 		node.parentNode.removeChild( node );
+			// 		return txt.split( ' ' );
+			// 	},
+			// 	cFrag: function () {
+			// 		return document.createDocumentFragment();
+			// 	},
+			// 	cElem: function ( name ) {
+			// 		return document.createElement( name );
+			// 	} 
+			// }
+
+			// onload = function () {
+
+			// 	// 添加数据
+			// 	var list = J.getData( 'data' ),
+			// 	    docfrag = J.cFrag(),
+			// 		nodes = [], i,
+			// 		clearNode;
+
+			// 	for ( i = 0; i < list.length; i++ ) {
+			// 		var div = J.cElem( 'div' );
+			// 		div.innerHTML = list[ i ];
+			// 		div.className = 'rect';
+			// 		docfrag.appendChild( div );
+			// 		nodes.push( div );
+			// 	}
+
+			// 	J.id( 'container' ).appendChild( docfrag );
+			// 	clearNode = J.cElem( 'div' );
+			// 	clearNode.className = 'clear';
+			// 	J.id( 'container' ).appendChild( clearNode ); 
+
+
+			// 	// 绑定计时器
+			// 	var start = false,
+			// 		interval,
+			// 		select;
+			// 	J.id( 'button' ).onclick = function () {
+			// 		if ( start ) { 	// 滚动
+			// 			clearInterval( interval );
+			// 			this.innerHTML = '点 击';
+			// 		} else { 		// 停止
+			// 			interval = setInterval(function () {
+			// 				if ( select ) select.className = 'rect';
+
+			// 				var i = parseInt( Math.random() * 1000 ) % list.length;
+
+			// 				select = nodes[ i ];
+
+			// 				select.className += ' select';
+
+			// 			}, 50);
+			// 			this.innerHTML = '停 止';
+			// 		}
+			// 		start = !start;
+			// 	};
+
+			// };
+		</script>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="button">点 击</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
